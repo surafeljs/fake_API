@@ -28,20 +28,25 @@ const Home = () => {
   }, []);
   const categoryRemove = new Set(data.map((item) => item.category));
 
-  const filler = data.filter((item) => {
-    const itemTitle = item.title ? item.title.toLowerCase() : "";
-    const searchTerm = search ? search.toLowerCase() : "";
-
-    return (
-      category === "All" ||
-      item.category === category ||
-      itemTitle.includes(searchTerm)
-    );
-  });
+  console.log(data);
+  const filler = data.filter(
+    (items) =>
+      (category === "All" || items.category === category) &&
+      (!search || items.title.toLowerCase().includes(search.toLowerCase()))
+  );
   console.log(filler);
 
   return (
     <>
+      {
+        <h1>
+          {filler.map((item, index) => (
+            <div key={index}>
+              <h1>{item.price} </h1>
+            </div>
+          ))}
+        </h1>
+      }
       <section className="bg-[#F9F7F7] h-screen">
         <Form>
           <FormGroup className=" flex gap-7 justify-center">
