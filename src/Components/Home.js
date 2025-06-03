@@ -6,6 +6,12 @@ import {
   FormGroup,
   Form,
   FormSelect,
+  Card,
+  CardBody,
+  CardTitle,
+  CardText,
+  CardImg,
+  CardSubtitle,
 } from "react-bootstrap";
 const Home = () => {
   const [data, setData] = useState([]);
@@ -38,16 +44,7 @@ const Home = () => {
 
   return (
     <>
-      {
-        <h1>
-          {filler.map((item, index) => (
-            <div key={index}>
-              <h1>{item.price} </h1>
-            </div>
-          ))}
-        </h1>
-      }
-      <section className="bg-[#F9F7F7] h-screen">
+      <section>
         <Form>
           <FormGroup className=" flex gap-7 justify-center">
             <FormControl
@@ -57,18 +54,16 @@ const Home = () => {
               onChange={(e) => setSearch(e.target.value)}
             ></FormControl>
             <FormSelect
-              className=" w-28 mt-20 p-2 border rounded-lg"
+              className=" w-40 mt-20 p-2 border rounded-lg "
               onChange={(e) => setCategoty(e.target.value)}
             >
-              {/* <option value={"All"}>All</option>
-              <option value={"men's clothing"}>men's clothing</option>
-              <option value={"women's clothing"}>women's clothing</option>
-              <option value={"jewelery"}>jewelery</option>
-              <option value={"electronics"}>electronics</option> */}
+              <option value="All">All</option>
               {Array.from(categoryRemove).map((item, index) => (
-                <option key={index} value={item}>
-                  {item}
-                </option>
+                <div>
+                  <option key={index} value={item}>
+                    {item}
+                  </option>
+                </div>
               ))}
             </FormSelect>
             <FormControl
@@ -81,6 +76,28 @@ const Home = () => {
           </FormGroup>
         </Form>
       </section>
+      {
+        <div className="grid border grid-cols-3  container mx-auto px-4 py-5 bg-[#3F5F7F8]  mt-10 ">
+          {filler.map((item, index) => (
+            <div style={{ width: "16rem" }} key={index}>
+              <Card
+                style={{
+                  width: "16rem",
+                  objectFit: "cover",
+                }}
+              >
+                <CardImg src={item.image}></CardImg>
+
+                <CardBody>
+                  <CardTitle> {item.category}</CardTitle>
+                  <CardText>{item.title}</CardText>
+                  <CardSubtitle> {item.price}</CardSubtitle>
+                </CardBody>
+              </Card>
+            </div>
+          ))}
+        </div>
+      }
     </>
   );
 };
