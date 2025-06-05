@@ -66,13 +66,6 @@ const Home = () => {
                 </div>
               ))}
             </FormSelect>
-            <FormControl
-              className="bg-[#EEEEEE] mt-20 w-40 text-lg font-sans hover:text-[#FFFF] transition-all duration-300 hover:bg-[#BBE1FA]
-            p-2 border rounded-lg"
-              type="submit"
-              value={"Search"}
-              placeholder="Search ... "
-            ></FormControl>
           </FormGroup>
         </Form>
       </section>
