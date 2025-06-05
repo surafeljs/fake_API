@@ -70,12 +70,13 @@ const Home = () => {
         </Form>
       </section>
       {
-        <div className="grid border grid-cols-3  container mx-auto px-4 py-5 bg-[#3F5F7F8]  mt-10 ">
+        <div className="grid   grid-cols-1 sm:grid-cols-2  md:grid-cols-3  space-y-5 container mx-auto px-4 py-5 bg-[#3F5F7F8]  mt-10 ">
           {filler.map((item, index) => (
-            <div style={{ width: "16rem" }} key={index}>
+            <div className="   " style={{ width: "16rem" }} key={index}>
               <Card
+                className="p-5 border rounded-lg"
                 style={{
-                  width: "16rem",
+                  width: "13rem",
                   objectFit: "cover",
                 }}
               >
