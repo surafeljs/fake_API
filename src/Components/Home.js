@@ -81,7 +81,7 @@ const Home = () => {
                 }}
               >
                 <CardImg
-                  className="hover:scale-95 hover:skew-x-2 hover:opacity-80 transition-all duration-150"
+                  className="hover:scale-95 hover:skew-x-2 hover:opacity-80 transition-all duration-150 size-48 object-contain"
                   src={item.image}
                 ></CardImg>
 
@@ -103,6 +103,11 @@ const Home = () => {
           ))}
         </div>
       }
+      <section>
+        <footer className="bg-[#393E46] w-full text-[#EEEEEE] text-center p-10 ">
+          &copy; {new Date().getFullYear()} Surafel D.
+        </footer>
+      </section>
     </>
   );
 };
