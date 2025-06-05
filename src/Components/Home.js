@@ -70,22 +70,33 @@ const Home = () => {
         </Form>
       </section>
       {
-        <div className="grid   grid-cols-1 sm:grid-cols-2  md:grid-cols-3  space-y-5 container mx-auto px-4 py-5 bg-[#3F5F7F8]  mt-10 ">
+        <div className="grid border  grid-cols-1 sm:grid-cols-2  md:grid-cols-3  space-y-5 container mx-auto px-4 py-5 bg-[#3F5F7F8]  mt-10 ">
           {filler.map((item, index) => (
-            <div className="   " style={{ width: "16rem" }} key={index}>
+            <div key={index}>
               <Card
-                className="p-5 border rounded-lg"
+                className="p-5 border rounded-lg shadow-lg"
                 style={{
-                  width: "13rem",
+                  width: "16rem",
                   objectFit: "cover",
                 }}
               >
-                <CardImg src={item.image}></CardImg>
+                <CardImg
+                  className="hover:scale-95 hover:skew-x-2 hover:opacity-80 transition-all duration-150"
+                  src={item.image}
+                ></CardImg>
 
                 <CardBody>
-                  <CardTitle> {item.category}</CardTitle>
-                  <CardText>{item.title}</CardText>
-                  <CardSubtitle> {item.price}</CardSubtitle>
+                  <CardTitle className="font-sans text-xl mt-1">
+                    {" "}
+                    {item.category}
+                  </CardTitle>
+                  <CardText className="font-sans text-sm h-[1rem] overflow-hidden text-[#00ADB5]  mt-1">
+                    {item.title}
+                  </CardText>
+                  <CardSubtitle className="text-gray-400 mt-1">
+                    {" "}
+                    {`${item.price} $`}
+                  </CardSubtitle>
                 </CardBody>
               </Card>
             </div>
